@@ -1,0 +1,41 @@
+$flaticon-font: "flaticon";
+
+@font-face {
+    font-family: $flaticon-font;
+    src: url("./flaticon.ttf?eeb65c63f27e4ebc1523012cf3b6393a") format("truetype"),
+url("./flaticon.woff?eeb65c63f27e4ebc1523012cf3b6393a") format("woff"),
+url("./flaticon.woff2?eeb65c63f27e4ebc1523012cf3b6393a") format("woff2"),
+url("./flaticon.eot?eeb65c63f27e4ebc1523012cf3b6393a#iefix") format("embedded-opentype"),
+url("./flaticon.svg?eeb65c63f27e4ebc1523012cf3b6393a#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon-map: (
+    "ganar": "\f101",
+    "gotadeagua": "\f102",
+    "medidordeagua": "\f103",
+    "perfil": "\f104",
+);
+
+.flaticon-ganar:before {
+    content: map-get($flaticon-map, "ganar");
+}
+.flaticon-gotadeagua:before {
+    content: map-get($flaticon-map, "gotadeagua");
+}
+.flaticon-medidordeagua:before {
+    content: map-get($flaticon-map, "medidordeagua");
+}
+.flaticon-perfil:before {
+    content: map-get($flaticon-map, "perfil");
+}

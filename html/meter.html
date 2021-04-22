@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajustes del Medidor</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap">
+    <link rel="stylesheet" href="/css/meter.css">
+    <link rel="stylesheet" href="/font/flaticon.css">
+</head>
+<body>
+    <div class="box">
+
+        <p>Configuración del Medidor</p>
+
+        <p id="titulo">Selección del objetivo</p>
+
+        <div class="configuracion1">
+            <div id="config1" onclick="opcion1()"><p>Automático</p></div>
+            <div id="config2" onclick="opcion2()"><p>Manual</p></div>
+        </div>
+        <div id="manual">
+            <p>Selecciona tu objetivo</p>
+            <div id="caja">
+                <p id="nums"></p>
+            </div>
+            <div class="numeros">
+                <a onclick="n1()">1</a>
+                <a onclick="n2()">2</a>
+                <a onclick="n3()">3</a>
+            </div>
+            <div class="numeros">
+                <a onclick="n4()">4</a>
+                <a onclick="n5()">5</a>
+                <a onclick="n6()">6</a>
+            </div>
+            <div class="numeros">
+                <a onclick="n7()">7</a>
+                <a onclick="n8()">8</a>
+                <a onclick="n9()">9</a>
+            </div>
+            <div class="numeros">
+                <a onclick="C()">C</a>
+                <a onclick="n0()">0</a>
+                <a onclick="ok()">OK</a>
+            </div>
+        </div>
+
+        <p id="titulo">Alarma de Consumo</p>
+
+        <div class="configuracion2">
+            <div id="configA" onclick="opcionA()"><p>Auditiva</p></div>
+            <div id="configB" onclick="opcionB()"><p>Visual</p></div>
+            <div id="configC" onclick="opcionC()"><p>Ambas</p></div>
+        </div>
+    </div>
+
+    <div class="caja_iconos">
+        <div id="perfil"><a href="/html/profile.html"><i class="flaticon-perfil" ></i></a></div>
+        <div id="gota"><a href="/index.html"><i class="flaticon-gotadeagua"></i></a></div>
+        <div id="medidor"><a href="/html/meter.html"><i class="flaticon-medidordeagua"></i></a></div>
+    </div>
+    <script src="/js/meter.js"></script>
+</body>
+</html>
