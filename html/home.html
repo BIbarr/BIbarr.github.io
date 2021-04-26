@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestor de Consumo de Agua</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap"
+    />
+    <link rel="stylesheet" href="/css/home.css" />
+    <link rel="stylesheet" href="/font/flaticon.css" />
+  </head>
+  <body>
+    <div class="box">
+      <!-- Cabecera Bienvenida -->
+      <p>Hola!, <span id="name"></span></p>
+      <p>Bienvenido a tu gestor de consumo de agua</p>
+
+      <!-- Datos de Consumo -->
+      <div class="caja_consumo">
+        <p>Tu consumo hoy:</p>
+        <p id="consumo"></p>
+      </div>
+
+      <p>Lo estás logrando...</p>
+
+      <div class="caja_objetivo">
+        <p>Consumo máximo programado:</p>
+        <p id="consumo_2"></p>
+      </div>
+    </div>
+
+    <!-- Barra de Navegación -->
+    <div class="caja_iconos">
+      <div id="perfil">
+        <a href="/html/profile.html"><i class="flaticon-perfil"></i></a>
+      </div>
+      <div id="gota">
+        <a href="/html/home.html"> <i class="flaticon-gotadeagua"></i></a>
+      </div>
+      <div id="medidor">
+        <a href="/html/meter.html"> <i class="flaticon-medidordeagua"></i></a>
+      </div>
+    </div>
+
+    <!--FIREBASE SCRIPTS-->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-firestore.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyA_L0RplVTq41gcghIV6ogA2_1iNbCyD1E",
+        authDomain: "gestor-de-agua.firebaseapp.com",
+        projectId: "gestor-de-agua",
+        storageBucket: "gestor-de-agua.appspot.com",
+        messagingSenderId: "1087070163159",
+        appId: "1:1087070163159:web:571c9cd3556a0c9f462092",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    
+    <!-- Script Personalizado -->
+    <script src="/js/home.js"></script>
+  </body>
+</html>

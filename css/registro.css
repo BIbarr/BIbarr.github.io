@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-weight: bold;
+}
+
+body {
+  position: relative;
+  background: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: rgb(128, 255, 219) no-repeat;
+  background: linear-gradient(
+      0deg,
+      rgba(128, 255, 219, 1) 26%,
+      rgba(100, 112, 206, 1) 56%,
+      rgba(116, 0, 184, 1) 80%
+    )
+    no-repeat;
+}
+
+p {
+  font-size: 150%;
+  color: rgb(116, 0, 184);
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+#mensaje {
+  font-size: 80%;
+  font-weight: 300;
+}
+
+a p {
+  font-size: 100%;
+  font-weight: 300;
+}
+
+label {
+  text-align: left;
+}
+
+.box {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 100%;
+  color: white;
+  text-align: center;
+  background-color: white;
+  min-height: 80vh;
+  width: 75%;
+  padding-top: 10vh;
+  padding-left: 5%;
+  padding-right: 5%;
+  border-radius: 2rem;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.7),
+    rgba(255, 255, 255, 0.3)
+  );
+  z-index: 2;
+  backdrop-filter: blur(2rem);
+}
+
+.btn-entrar {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 100%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  background-color: rgb(116, 0, 184);
+  width: 100%;
+  color: white;
+  border: none;
+  border-radius: 3rem;
+  padding: 0.5em;
+}
+
+.email,
+.contrasena,
+.name {
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 120%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-top: 1em;
+  padding-bottom: 0.2em;
+  padding-left: 0.5em;
+  background: transparent;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgb(116, 0, 184);
+}
+
+.custom-shape-divider-bottom-1619392761 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1619392761 svg {
+  position: relative;
+  display: block;
+  width: calc(300% + 1.3px);
+  height: 368px;
+}
+
+.custom-shape-divider-bottom-1619392761 .shape-fill {
+  fill: #f1f0f0;
+}
