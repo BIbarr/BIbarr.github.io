@@ -246,6 +246,16 @@ function guardarDia(){
     .then(() => {console.log("Documento Viernes correctament actualizado");})
     .catch((error) => {console.error("Error actualizando el documento: ", error);});
   }
+  else if(dia == 6){
+    return docRef.update({ sabado : consumo })
+    .then(() => {console.log("Documento Sabado correctament actualizado");})
+    .catch((error) => {console.error("Error actualizando el documento: ", error);});
+  }
+  else if(dia == 0){
+    return docRef.update({ domingo : consumo })
+    .then(() => {console.log("Documento Domingo correctament actualizado");})
+    .catch((error) => {console.error("Error actualizando el documento: ", error);});
+  }
   else;
 }
 
