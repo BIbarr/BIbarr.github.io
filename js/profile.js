@@ -19,8 +19,8 @@ firebase.auth().onAuthStateChanged(function (user) {
 var i = 0;
 var j = 0;
 var mayor = 0;
-var litros = [0, 0, 0, 0, 0];
-var valores = ["0%", "0%", "0%", "0%", "0%"];
+var litros = [0, 0, 0, 0, 0, 0, 0];
+var valores = ["0%", "0%", "0%", "0%", "0%", "0%", "0%"];
 
 //Función para obtener datos de firestore
 function obtenerDatos() {
@@ -39,6 +39,8 @@ function obtenerDatos() {
         litros[2] = doc.data().miercoles;
         litros[3] = doc.data().jueves;
         litros[4] = doc.data().viernes;
+        litros[5] = doc.data().sabado;
+        litros[6] = doc.data().domingo;
         mostrar_litros();
         console.log(litros);
       } else {
@@ -57,41 +59,67 @@ function mostrar_litros() {
     litros[0] >= litros[1] &&
     litros[0] >= litros[2] &&
     litros[0] >= litros[3] &&
-    litros[0] >= litros[4]
+    litros[0] >= litros[4] &&
+    litros[0] >= litros[5] &&
+    litros[0] >= litros[6]
   ) {
     mayor = litros[0];
   } else if (
     litros[1] >= litros[0] &&
     litros[1] >= litros[2] &&
-    litros[1] >= litros[3] &&
-    litros[1] >= litros[4]
+    litros[1] >= litros[4] &&
+    litros[1] >= litros[5] &&
+    litros[1] >= litros[6]
   ) {
     mayor = litros[1];
   } else if (
     litros[2] >= litros[0] &&
     litros[2] >= litros[1] &&
     litros[2] >= litros[3] &&
-    litros[2] >= litros[4]
+    litros[2] >= litros[4] &&
+    litros[2] >= litros[5] &&
+    litros[2] >= litros[6]
   ) {
     mayor = litros[2];
   } else if (
     litros[3] >= litros[0] &&
     litros[3] >= litros[1] &&
     litros[3] >= litros[2] &&
-    litros[3] >= litros[4]
+    litros[3] >= litros[4] &&
+    litros[3] >= litros[5] &&
+    litros[3] >= litros[6]
   ) {
     mayor = litros[3];
-  } else {
+  } else if (
+    litros[4] >= litros[0] &&
+    litros[4] >= litros[1] &&
+    litros[4] >= litros[2] &&
+    litros[4] >= litros[4] &&
+    litros[4] >= litros[5] &&
+    litros[4] >= litros[6]
+  ) {
     mayor = litros[4];
+  } else if (
+    litros[5] >= litros[0] &&
+    litros[5] >= litros[1] &&
+    litros[5] >= litros[2] &&
+    litros[5] >= litros[4] &&
+    litros[5] >= litros[5] &&
+    litros[5] >= litros[6]
+  ) {
+    mayor = litros[5];
+  } 
+  else {
+    mayor = litros[6];
   }
 
   console.log(mayor);
 
-  for (i = 0; i < 5; i++) {
+  for (i = 0; i < 7; i++) {
     valores[i] = (litros[i] * 100) / mayor + "%";
   }
 
-  for (i = 0; i < 5; i++) {
+  for (i = 0; i < 7; i++) {
     console.log(valores[i]);
   }
 
@@ -109,6 +137,12 @@ function mostrar_litros() {
 
   var viernes = document.getElementById("viernes");
   viernes.style.width = valores[4];
+
+  var sabado = document.getElementById("sabado");
+  sabado.style.width = valores[5];
+
+  var domingo = document.getElementById("domingo");
+  domingo.style.width = valores[6];
 }
 
 

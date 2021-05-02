@@ -14,7 +14,7 @@ signUpForm.addEventListener("submit", (e) => {
             var user = firebase.auth().currentUser;
             user.updateProfile({displayName: name});
             signUpForm.reset();
-            //window.location.replace('/index.html');
+            window.location.replace('/index.html');
         })
         .catch((error) => {
             var errorCode = error.code;
@@ -23,7 +23,7 @@ signUpForm.addEventListener("submit", (e) => {
             console.log(errorCode);
             console.log(errorMessage);
 
-            if(errorCode = "auth/email-already-in-use"){
+            if(errorCode == "auth/email-already-in-use"){
             document.getElementById("mensaje").innerHTML = "El correo ya ha sido utilizado";
             }
         })
