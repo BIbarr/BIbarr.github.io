@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil del Usuario</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap"
+    />
+    <link rel="stylesheet" href="/css/profile.css" />
+    <link rel="stylesheet" href="/font/flaticon.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+  </head>
+  <body>
+    <div class="box">
+      <p><span>Tu Perfil</span></p>
+
+      <!-- Datos de Consumo -->
+      <div class="caja-consumo">
+        <p><span>Tu consumo esta semana: </span></p>
+        <p>Lunes</p>
+        <div class="progreso">
+          <div class="progreso-valor" id="lunes"></div>
+        </div>
+        <p>Martes</p>
+        <div class="progres0">
+          <div class="progreso-valor" id="martes"></div>
+        </div>
+        <p>Miercoles</p>
+        <div class="progres0">
+          <div class="progreso-valor" id="miercoles"></div>
+        </div>
+        <p>Jueves</p>
+        <div class="progres0">
+          <div class="progreso-valor" id="jueves"></div>
+        </div>
+        <p>Viernes</p>
+        <div class="progres0">
+          <div class="progreso-valor" id="viernes"></div>
+        </div>
+      </div>
+
+      <!-- Logros Personales-->
+      <div class="logros">
+        <p><span>Tus Logros</span></p>
+      </div>
+
+      <!-- Cerrar Sesion -->
+      <div class="cerrar-sesion">
+        <a id="cerrar-sesion"><p>Cerrar Sesión</p></a>
+      </div>
+    </div>
+
+    <div class="caja-iconos">
+      <div id="perfil">
+        <a href="/html/profile.html"><i class="flaticon-perfil"></i></a>
+      </div>
+      <div id="gota">
+        <a href="/html/home.html"><i class="flaticon-gotadeagua"></i></a>
+      </div>
+      <div id="medidor">
+        <a href="/html/meter.html"><i class="flaticon-medidordeagua"></i></a>
+      </div>
+    </div>
+
+    <!--FIREBASE SCRIPTS-->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-database.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyD9wZaDc9U3z0KadPCqL0k594n5YlMqiwk",
+        authDomain: "gestoragua-cfb07.firebaseapp.com",
+        databaseURL: "https://gestoragua-cfb07-default-rtdb.firebaseio.com",
+        projectId: "gestoragua-cfb07",
+        storageBucket: "gestoragua-cfb07.appspot.com",
+        messagingSenderId: "115130740113",
+        appId: "1:115130740113:web:8baa3aec1820ba6acc3e30",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+    
+    <!-- Script Personalizado -->
+    <script src="/js/profile.js"></script>
+  </body>
+</html>

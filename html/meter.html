@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajustes del Medidor</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700&display=swap"
+    />
+    <link rel="stylesheet" href="/css/meter.css" />
+    <link rel="stylesheet" href="/font/flaticon.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/favicon/site.webmanifest">
+  </head>
+  <body>
+    <div class="box">
+      <p>Configuración del Medidor</p>
+
+      <p id="titulo">Selección del objetivo</p>
+
+      <!-- Establecimiento de Objetivo -->
+      <div class="configuracion1">
+        <div id="config1"><p>Automático</p></div>
+        <div id="config2"><p>Manual</p></div>
+      </div>
+      <div id="manual">
+        <p>Selecciona tu objetivo</p>
+        <form id="manual-form">
+        <input type="number" class="caja-numeros" id="numero"/>
+        <div class="confirmar">
+          <input type="submit" value="Confirmar" class="confirm" />
+        </div>
+        </form>
+      </div>
+
+
+      <p id="titulo">Alarma de Consumo</p>
+      <!-- Establecimiento configuración de alarma -->
+      <div class="configuracion2">
+        <div id="configA"><p>Auditiva</p></div>
+        <div id="configB"><p>Visual</p></div>
+        <div id="configC"><p>Ambas</p></div>
+      </div>
+
+      <p id="titulo">Medición</p>
+      <div class="medir">
+        <button type="button" id="medir"><p id="medicion">Iniciar Medición</p></button>
+      </div>
+
+    </div>
+
+    <!-- Barra de Navegación -->
+    <div class="caja-iconos">
+      <div id="perfil">
+        <a href="/html/profile.html"><i class="flaticon-perfil"></i></a>
+      </div>
+      <div id="gota">
+        <a href="/html/home.html"><i class="flaticon-gotadeagua"></i></a>
+      </div>
+      <div id="medidor">
+        <a href="/html/meter.html"><i class="flaticon-medidordeagua"></i></a>
+      </div>
+    </div>
+
+    <!--FIREBASE SCRIPTS-->
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-database.js"></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyD9wZaDc9U3z0KadPCqL0k594n5YlMqiwk",
+        authDomain: "gestoragua-cfb07.firebaseapp.com",
+        databaseURL: "https://gestoragua-cfb07-default-rtdb.firebaseio.com",
+        projectId: "gestoragua-cfb07",
+        storageBucket: "gestoragua-cfb07.appspot.com",
+        messagingSenderId: "115130740113",
+        appId: "1:115130740113:web:8baa3aec1820ba6acc3e30",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="/js/meter.js"></script>
+  </body>
+</html>
