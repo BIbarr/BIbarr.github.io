@@ -1,0 +1,22 @@
+{
+  "name": "Gestor de Consumo de Agua",
+  "short_name": "", 
+  "start_url": "/index.html",
+  "lang": "es", 
+  "icons": [
+    {
+      "src": "/favicon/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "background_color": "#ffffff",
+  "theme_color": "#7400b8",
+  "description": "Aplicación que permite verificar tu consumo de agua",
+  "display": "standalone"
+}

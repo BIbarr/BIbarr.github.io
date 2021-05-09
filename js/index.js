@@ -22,6 +22,7 @@ firebase.auth().onAuthStateChanged(function(user) {
       console.log(user);
       console.log(user.displayName);
       console.log('Auth: En sesión');
+      window.location.replace('/html/home.html');
     } else {
       // Sesión de usuario terminada
       console.log('Auth: No en sesión');

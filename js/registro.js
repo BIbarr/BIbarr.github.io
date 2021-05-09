@@ -39,7 +39,14 @@ firebase.auth().onAuthStateChanged(function (user) {
       console.log(usuario);
       const db = firebase.firestore();
       db.collection("usuario").doc(usuario).set({
-          consumoLimite: 50,
+          consumoLimite: 0,
+          lunes: 0,
+          martes: 0,
+          miercoles: 0,
+          jueves: 0,
+          viernes: 0,
+          sabado: 0,
+          domingo: 0
       })
       .then(() => {
           console.log("Documento escrito correctamente!");
@@ -52,7 +59,7 @@ firebase.auth().onAuthStateChanged(function (user) {
       // No hay usuario en sesión
       console.log("Auth: No en Sesión");
     }
-  });
+});
   
 
 

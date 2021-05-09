@@ -41,8 +41,8 @@ function obtenerDatos() {
         litros[4] = doc.data().viernes;
         litros[5] = doc.data().sabado;
         litros[6] = doc.data().domingo;
-        console.log(litros);
         mostrar_litros();
+        console.log(litros);
       } else {
         //doc.data() no está definido
         console.log("No se encuentra el documento!");

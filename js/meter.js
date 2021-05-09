@@ -114,6 +114,7 @@ function setMedicion(){
 }
 
 function medicion(){
+      //Parar Medición
   if(indMedicion == 0){
     indMedicion++;
     //obtenerDato();
@@ -125,12 +126,33 @@ function medicion(){
     });
     document.getElementById("medicion").innerHTML = "Iniciar Medición";
   }
+    //Iniciar Medición
   else{
     indMedicion = 0;
     localStorage.setItem("indMedicion", 1);
     document.getElementById("medicion").innerHTML = "";
     document.getElementById("medicion").innerHTML = "Parar Medición";
+    const db = firebase.firestore();
+    var docRef = db.collection("usuario").doc(usuario);
+    var consumoLim;
+    docRef
+    .get()
+    .then((doc) => {
+    if (doc.exists) {
+      console.log("Document data:", doc.data());
+      console.log(consumoLim);
+      consumoLim = doc.data().consumoLimite;
+    }
+    else{
+      console.log("No hay documento");
+    }
+    })
+    .catch((error) => {
+    //Error obteniendo el documento
+    console.log("Error getting document:", error);
+    });
     firebase.database().ref().update({
+      limite: 777,
       iniciar: 1
     });
     console.log("Inicia culo: 1");
@@ -242,7 +264,9 @@ function guardarDia(){
     .catch((error) => {console.error("Error actualizando el documento: ", error);});
   }
   else if(dia == 5){
-    return docRef.update({ viernes : consumo })
+    return docRef.update({
+      viernes: firebase.firestore.FieldValue.increment(consumo)
+    })
     .then(() => {console.log("Documento Viernes correctament actualizado");})
     .catch((error) => {console.error("Error actualizando el documento: ", error);});
   }
