@@ -33,10 +33,6 @@ signInForm.addEventListener("submit", (e) => {
   const db = firebase.firestore();
   var docRef = db.collection("usuario").doc(usuario);
 
-  firebase.database().ref().update({
-    limite: numero
-  });
-
   return docRef.update({
     consumoLimite: numero
   })
@@ -142,6 +138,9 @@ function medicion(){
       console.log("Document data:", doc.data());
       console.log(consumoLim);
       consumoLim = doc.data().consumoLimite;
+      firebase.database().ref().update({
+        limite: consumoLim
+      });
     }
     else{
       console.log("No hay documento");
@@ -152,7 +151,6 @@ function medicion(){
     console.log("Error getting document:", error);
     });
     firebase.database().ref().update({
-      limite: consumoLim,
       iniciar: 1
     });
     console.log("Inicia culo: 1");
