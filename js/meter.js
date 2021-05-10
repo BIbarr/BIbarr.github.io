@@ -244,22 +244,30 @@ function guardarDia(){
 
   var dia = fecha.getDay();
   if(dia == 1){
-    return docRef.update({ lunes : consumo })
+    return docRef.update({ 
+      lunes: firebase.firestore.FieldValue.increment(consumo) 
+    })
       .then(() => {console.log("Documento Lunes correctament actualizado");})
       .catch((error) => {console.error("Error actualizando el documento: ", error);});
   }
   else if(dia == 2){
-    return docRef.update({ martes : consumo })
+    return docRef.update({ 
+      martes: firebase.firestore.FieldValue.increment(consumo)  
+    })
     .then(() => {console.log("Documento Martes correctament actualizado");})
     .catch((error) => {console.error("Error actualizando el documento: ", error);});
   }
   else if(dia == 3){
-    return docRef.update({ miercoles : consumo })
+    return docRef.update({ 
+      miercoles: firebase.firestore.FieldValue.increment(consumo) 
+    })
     .then(() => {console.log("Documento Miercoles correctament actualizado");})
     .catch((error) => {console.error("Error actualizando el documento: ", error);});
   }
   else if(dia == 4){
-    return docRef.update({ jueves : consumo })
+    return docRef.update({ 
+      jueves: firebase.firestore.FieldValue.increment(consumo) 
+    })
     .then(() => {console.log("Documento Jueves correctament actualizado");})
     .catch((error) => {console.error("Error actualizando el documento: ", error);});
   }
@@ -271,12 +279,16 @@ function guardarDia(){
     .catch((error) => {console.error("Error actualizando el documento: ", error);});
   }
   else if(dia == 6){
-    return docRef.update({ sabado : consumo })
+    return docRef.update({ 
+      sabado : firebase.firestore.FieldValue.increment(consumo) 
+    })
     .then(() => {console.log("Documento Sabado correctament actualizado");})
     .catch((error) => {console.error("Error actualizando el documento: ", error);});
   }
   else if(dia == 0){
-    return docRef.update({ domingo : consumo })
+    return docRef.update({ 
+      domingo : firebase.firestore.FieldValue.increment(consumo)
+    })
     .then(() => {console.log("Documento Domingo correctament actualizado");})
     .catch((error) => {console.error("Error actualizando el documento: ", error);});
   }
