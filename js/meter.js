@@ -152,7 +152,7 @@ function medicion(){
     console.log("Error getting document:", error);
     });
     firebase.database().ref().update({
-      limite: 777,
+      limite: consumoLim,
       iniciar: 1
     });
     console.log("Inicia culo: 1");
