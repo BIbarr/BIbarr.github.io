@@ -1,6 +1,6 @@
 const signUpForm = document.querySelector("#signup-form");
 
-//Método que escucha si se llenó el registro
+/*--------- Método que escucha si se llenó el registro -----------*/
 signUpForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const name = document.querySelector('#display-name').value;
@@ -14,7 +14,6 @@ signUpForm.addEventListener("submit", (e) => {
             var user = firebase.auth().currentUser;
             user.updateProfile({displayName: name});
             signUpForm.reset();
-            window.location.replace('/index.html');
         })
         .catch((error) => {
             var errorCode = error.code;
@@ -29,30 +28,45 @@ signUpForm.addEventListener("submit", (e) => {
         })
 });
 
+
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       // Usuario en sesión
-      console.log(user.displayName);
       console.log("Auth: En Sesión");
       /*--------Creación del documento para el usuario---------*/
-      var usuario = user.uid; //var uid = user.uid;
+      //Se registra un documento para el usuario con user id
+      var usuario = user.uid; 
       console.log(usuario);
       const db = firebase.firestore();
-      db.collection("usuario").doc(usuario).set({
-          consumoLimite: 0,
-          lunes: 0,
-          martes: 0,
-          miercoles: 0,
-          jueves: 0,
-          viernes: 0,
-          sabado: 0,
-          domingo: 0
-      })
-      .then(() => {
-          console.log("Documento escrito correctamente!");
-      })
-      .catch((error) => {
-          console.error("Error escribiendo el documento: ", error);
+      //Revisamos si el documento ya ha sido escrito 
+      db.collection("usuario").doc(usuario).get().then((doc)=>{
+          if(doc.exists){
+              console.log("El documento ya existe")
+          }
+          else{
+              console.log("El documento no se ha escrito")
+              db.collection("usuario").doc(usuario).set({
+                consumoLimite: 0,
+                lunes: 0,
+                martes: 0,
+                miercoles: 0,
+                jueves: 0,
+                viernes: 0,
+                sabado: 0,
+                domingo: 0
+            })
+            .then(() => {
+                console.log("Documento escrito correctamente!");
+                /*Cuando el documento se haya escrito correctamente es posible 
+                cambiar de página*/
+                window.location.replace('/index.html');
+            })
+            .catch((error) => {
+                console.error("Error escribiendo el documento: ", error);
+            });
+          }
+      }).catch((error)=>{
+            console.log("Error obteniendo el documento:", error);
       });
       /*-------------------------------------------------------*/
     } else {
