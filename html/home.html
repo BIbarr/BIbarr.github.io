@@ -11,16 +11,32 @@
     />
     <link rel="stylesheet" href="/css/home.css" />
     <link rel="stylesheet" href="/font/flaticon.css" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body>
     <div class="box">
       <!-- Cabecera Bienvenida -->
-      <p>Hola!, <span id="name"></span></p>
-      <p>Bienvenido a tu gestor de consumo de agua</p>
+      <div class="caja_bienvenida">
+        <p>Hola!, <span id="name"></span></p>
+        <p>Bienvenido a tu gestor de consumo de agua</p>
+      </div>
 
       <!-- Datos de Consumo -->
       <div class="caja_consumo">
@@ -28,7 +44,9 @@
         <p id="consumo"></p>
       </div>
 
-      <p id="progreso"></p>
+      <div class="progreso">
+        <p id="progreso"></p>
+      </div>
 
       <div class="caja_objetivo">
         <p>Consumo máximo programado:</p>
@@ -42,7 +60,7 @@
         <a href="/html/profile.html"><i class="flaticon-perfil"></i></a>
       </div>
       <div id="gota">
-       <a href="/html/home.html"><i class="flaticon-gotadeagua"></i></a>
+        <a href="/html/home.html"><i class="flaticon-gotadeagua"></i></a>
       </div>
       <div id="medidor">
         <a href="/html/meter.html"> <i class="flaticon-medidordeagua"></i></a>

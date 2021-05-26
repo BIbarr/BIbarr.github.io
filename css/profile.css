@@ -12,13 +12,27 @@ body {
 }
 
 .box {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(3, auto);
+  row-gap: 1vh;
+  column-gap: 5%;
+  grid-template-areas: "tituloP       tituloL"
+                       "caja-consumo  logros"
+                       "cerrar-sesion cerrar-sesion";
   text-decoration: none;
   background: rgb(241, 240, 240);
   font-size: 150%;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-top: 5%;
-  margin-bottom: 5%;
+  max-width: 90%;
+  margin: 5%;
+}
+
+.tituloP{
+  grid-area: tituloP;
+}
+
+.tituloL{
+  grid-area: tituloL;
 }
 
 span {
@@ -57,6 +71,7 @@ p {
 }
 
 .caja-consumo {
+  grid-area: caja-consumo;
   color: white;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
@@ -78,17 +93,21 @@ p {
   box-shadow: 0px 0px 23px -9px rgba(0, 0, 0, 0.79);
 }
 
+.logros{
+    grid-area: logros;
+}
+
 .insignias{
   font-size: 80%;
   display: grid;
   grid-template-columns: 50% 50%;
-  padding-left: 10%;
-  padding-right: 10%;
-  text-align: center;
   align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .cerrar-sesion {
+  grid-area: cerrar-sesion;
   margin-bottom: 6rem;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
@@ -132,4 +151,17 @@ a:link,
 a:active {
   color: black;
   text-decoration: none;
+}
+
+@media screen and (max-width: 500px){
+  .box{
+      grid-template-columns: 100%;
+      row-gap: 0;
+      column-gap: 0;
+      grid-template-areas: "tituloP"
+                           "caja-consumo"
+                           "tituloL"
+                           "logros"
+                           "cerrar-sesion";
+  }
 }

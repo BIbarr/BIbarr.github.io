@@ -12,7 +12,23 @@ signInForm.addEventListener("submit", (e) => {
             console.log('Sign In');
             signInForm.reset();
             window.location.replace('/html/home.html');
-        });
+        })
+        .catch((error) => {
+          var errorCode = error.code;
+          var errorMessage = error.message;
+
+          console.log(errorCode);
+          console.log(errorMessage);
+
+          if(errorCode == "auth/user-not-found"){
+            document.getElementById("mensaje1").innerHTML = "Este correo no está registrado";
+            document.getElementById("mensaje2").innerHTML = "";
+          }
+          else if(errorCode == "auth/wrong-password"){
+            document.getElementById("mensaje1").innerHTML = "";
+            document.getElementById("mensaje2").innerHTML = "La contraseña es incorrecta";
+          }
+      })
 });
 
 //Método de verificación de sesión de usuario 

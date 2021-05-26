@@ -11,15 +11,22 @@ body {
 }
 
 .box {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(3, auto);
+  row-gap: 5vh;
+  column-gap: 5%;
+  grid-template-areas: "caja_bienvenida caja_bienvenida"
+                       "caja_consumo    caja_objetivo"
+                       "progreso        progreso";
   text-decoration: none;
   background: rgb(241, 240, 240);
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-size: 150%;
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-top: 5%;
-  margin-bottom: 5%;
+  max-width: 90%;
+  margin: 5%;
+  margin-bottom: 10%;
 }
 
 p {
@@ -32,7 +39,12 @@ span {
   font-weight: 300;
 }
 
+.caja_bienvenida{
+    grid-area: caja_bienvenida;
+}
+
 .caja_consumo {
+  grid-area: caja_consumo;
   color: white;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
@@ -41,8 +53,6 @@ span {
   padding-right: 10%;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
   background: rgb(116, 0, 184);
   background: linear-gradient(
     90deg,
@@ -64,15 +74,13 @@ span {
 }
 
 .caja_objetivo {
+  grid-area: caja_objetivo;
   font-family: "Roboto", sans-serif;
   font-weight: 300;
-  border-radius: 3rem;
   padding-left: 10%;
   padding-right: 10%;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  margin-top: 1rem;
-  margin-bottom: 6rem;
 }
 
 #consumo_2 {
@@ -82,6 +90,15 @@ span {
   font-size: 200%;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
+}
+
+.progreso{
+    grid-area: progreso;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 5vh;
 }
 
 .caja_iconos {
@@ -120,4 +137,19 @@ a:visited,
 a:link,
 a:active {
   text-decoration: none;
+}
+
+@media screen and (max-width: 500px){
+  .box{
+      column-gap: 0;
+      row-gap: 1vh;
+      margin-bottom: 6rem;
+      grid-template-areas: "caja_bienvenida"
+                           "caja_consumo"
+                           "progreso"
+                           "caja_objetivo";
+  }
+  .progreso{
+    margin-bottom: 0vh;
+  }
 }

@@ -6,6 +6,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     // Usuario en sesión
     document.getElementById("name").innerHTML = user.displayName;
     console.log(user.displayName);
+    console.log(user.uid);
     console.log("Auth: En Sesión");
     usuario = user.uid;
     conseguirDatos();
