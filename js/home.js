@@ -80,7 +80,8 @@ var medicionRef = firebase.database().ref("medicion_vol/");
 //Método de observación de la base de datos 
 medicionRef.on("value", (snapshot) => {
   console.log("Obteniendo Datos");
-  consumo = consumoDia + snapshot.val();
+  //consumo = consumoDia + snapshot.val();
+  consumo = snapshot.val();
   console.log("Consumo 2: " + consumo);
   document.getElementById("consumo").innerHTML = Number.parseFloat(consumo).toFixed(2) + " Lts."; 
   if(consumoLim == undefined){}
