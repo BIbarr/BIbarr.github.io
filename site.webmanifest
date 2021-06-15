@@ -16,7 +16,7 @@
     }
   ],
   "background_color": "#ffffff",
-  "theme_color": "#7400b8",
+  "theme_color": "#f1f0f0",
   "description": "Aplicación que permite verificar tu consumo de agua",
   "display": "standalone"
 }

@@ -42,7 +42,7 @@ function obtenerDatos() {
         litros[5] = doc.data().sabado;
         litros[6] = doc.data().domingo;
         mostrar_litros();
-        console.log(litros);
+        //console.log(litros);
       } else {
         //doc.data() no está definido
         console.log("No se encuentra el documento!");
@@ -108,43 +108,97 @@ function mostrar_litros() {
     litros[5] >= litros[6]
   ) {
     mayor = litros[5];
-  } 
-  else {
+  } else {
     mayor = litros[6];
   }
 
-  console.log(mayor);
+  //console.log(mayor);
 
   for (i = 0; i < 7; i++) {
     valores[i] = (litros[i] * 100) / mayor + "%";
   }
 
-  for (i = 0; i < 7; i++) {
+  /*for (i = 0; i < 7; i++) {
     console.log(valores[i]);
-  }
+  }*/
 
-  var lunes = document.getElementById("lunes");
-  lunes.style.width = valores[0];
+  move(lunes, litros[0]).then((i) => {
+    move(martes, litros[1]).then((i) => {
+      move(miercoles, litros[2]).then((i) => {
+        move(jueves, litros[3]).then((i) => {
+          move(viernes, litros[4]).then((i) => {
+            move(sabado, litros[5]).then((i) => {
+              move(domingo, litros[6]);
+            });
+          });
+        });
+      });
+    });
+  });
 
-  var martes = document.getElementById("martes");
-  martes.style.width = valores[1];
-
-  var miercoles = document.getElementById("miercoles");
-  miercoles.style.width = valores[2];
-
-  var jueves = document.getElementById("jueves");
-  jueves.style.width = valores[3];
-
-  var viernes = document.getElementById("viernes");
-  viernes.style.width = valores[4];
-
-  var sabado = document.getElementById("sabado");
-  sabado.style.width = valores[5];
-
-  var domingo = document.getElementById("domingo");
-  domingo.style.width = valores[6];
+  document.getElementById("lu").innerHTML = "Lunes - " + litros[0] + " lts.";
+  document.getElementById("ma").innerHTML = "Martes - " + litros[1] + " lts.";
+  document.getElementById("mi").innerHTML = "Miércoles - " + litros[2] + " lts.";
+  document.getElementById("ju").innerHTML = "Jueves - " + litros[3] + " lts.";
+  document.getElementById("vi").innerHTML = "Viernes - " + litros[4] + " lts.";
+  document.getElementById("sa").innerHTML = "Sábado - " + litros[5] + " lts.";
+  document.getElementById("do").innerHTML = "Domingo - " + litros[6] + " lts.";
 }
 
+/*------------- Error -------------------*/
+/*function error (){
+  console.log("Error")
+  var lunes = document.getElementById("lunes");
+  var martes = document.getElementById("martes");
+  var miercoles = document.getElementById("miercoles");
+  var jueves = document.getElementById("jueves");
+  var viernes = document.getElementById("viernes");
+  var sabado = document.getElementById("sabado");
+  var domingo = document.getElementById("domingo");
+
+  lunes.style.width = valores[0];
+  document.getElementById("lu").innerHTML = "Lunes - " + litros[0] + " lts.";
+
+  martes.style.width = valores[1];
+  document.getElementById("ma").innerHTML = "Martes - " + litros[1] + " lts.";
+
+  miercoles.style.width = valores[2];
+  document.getElementById("mi").innerHTML = "Miércoles - " + litros[2] + " lts.";
+
+  jueves.style.width = valores[3];
+  document.getElementById("ju").innerHTML = "Jueves - " + litros[3] + " lts.";
+
+  viernes.style.width = valores[4];
+  document.getElementById("vi").innerHTML = "Viernes - " + litros[4] + " lts.";
+
+  sabado.style.width = valores[5];
+  document.getElementById("sa").innerHTML = "Sábado - " + litros[5] + " lts.";
+  
+  domingo.style.width = valores[6];
+  document.getElementById("do").innerHTML = "Domingo - " + litros[6] + " lts.";
+}*/
+
+/*-------- Move -------------------------*/
+function move(elem, valor) {
+  var i = 0;
+  return new Promise((resolve) => {
+    if (i == 0) {
+      i = 1;
+      var width = 1;
+      var id = setInterval(frame, 20);
+      function frame() {
+        if (width >= valor) {
+          clearInterval(id);
+          i = 0;
+        } else {
+          width++;
+          elem.style.width = width + "%";
+        }
+      }
+    }
+    resolve(i);
+  });
+}
 
 /*------------- Cierre de Sesión --------------*/
 const cerrarSesion = document.querySelector("#cerrar-sesion");

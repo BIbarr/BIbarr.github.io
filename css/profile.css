@@ -49,6 +49,11 @@ p {
   margin-bottom: 0.5em;
 }
 
+#lu, #ma, #mi, #ju, #vi, #sa, #do{
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
 .progreso {
   box-sizing: content-box;
   background: rgba(255, 255, 255, 0.1);
