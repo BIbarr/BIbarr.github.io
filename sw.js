@@ -1,3 +1,20 @@
+importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.0.0/workbox-sw.js');
+
+workbox.routing.registerRoute(
+    new RegExp('https://fonts.(?:googleapis|gstatic).com/(.*)'),
+    workbox.strategies.cacheFirst({
+      cacheName: 'google-fonts',
+      plugins: [
+        new workbox.expiration.Plugin({
+          maxEntries: 30,
+        }),
+        new workbox.cacheableResponse.Plugin({
+          statuses: [0, 200]
+        }),
+      ],
+    }),
+  );
+
 if (!self.define) {
   const e = (e) => {
       "require" !== e && (e += ".js");
@@ -20,24 +37,24 @@ if (!self.define) {
       Promise.all(i.map(e)).then((e) => c(1 === e.length ? e[0] : e));
     },
     c = { require: Promise.resolve(i) };
-  self.define = (i, r, f) => {
+  self.define = (i, r, d) => {
     c[i] ||
       (c[i] = Promise.resolve().then(() => {
         let c = {};
-        const d = { uri: location.origin + i.slice(1) };
+        const f = { uri: location.origin + i.slice(1) };
         return Promise.all(
           r.map((i) => {
             switch (i) {
               case "exports":
                 return c;
               case "module":
-                return d;
+                return f;
               default:
                 return e(i);
             }
           })
         ).then((e) => {
-          const i = f(...e);
+          const i = d(...e);
           return c.default || (c.default = i), c;
         });
       }));
@@ -117,22 +134,22 @@ define("./sw.js", ["./workbox-2b7abdc2"], function (e) {
           url: "font/flaticon.woff2",
           revision: "55b20735a1db5950cc5497d86306c8dc",
         },
-        { url: "html/home.html", revision: "1b5ead448c3809d608009bff24b6e004" },
+        { url: "html/home.html", revision: "fe7b91c517800dd047744dd2aa8935a9" },
         {
           url: "html/meter.html",
-          revision: "1e58b21d580b2cbcc1f20da33fd90cf4",
+          revision: "fdb6c3afb8c38c9bd9d7c73d71e159d6",
         },
         {
           url: "html/offline.html",
-          revision: "fddde3cea302d227786aa8ac9e4ca703",
+          revision: "a06d0251814855ee76d7c68371221e6d",
         },
         {
           url: "html/profile.html",
-          revision: "4bbc2113247c24e15a3ae8197fa174a0",
+          revision: "1437277022f87947c271a0f037dc8528",
         },
         {
           url: "html/registro.html",
-          revision: "d1b1da8ad82bf2163c9f4d52a698c304",
+          revision: "73a2d22745860159ee4eb4f76c2b8167",
         },
         {
           url: "img/Insignia1.png",
@@ -142,16 +159,15 @@ define("./sw.js", ["./workbox-2b7abdc2"], function (e) {
           url: "img/Insignia5.png",
           revision: "7a3a2882d685d06ad417b1d4b90bd7c3",
         },
-        { url: "index.html", revision: "7a626a5dd4e4251846f10c3a16d33c27" },
+        { url: "index.html", revision: "1c559bfaa540a538ef81335a714d5b94" },
         { url: "js/home.js", revision: "b387ddefd58fd82ad6ba17d8657dd0c7" },
         { url: "js/index.js", revision: "1def4d8223bfc673164024ce405ddc4d" },
         { url: "js/meter.js", revision: "5f366ed6961d1eacdda8c51893239363" },
         { url: "js/profile.js", revision: "2759bcc02eda1a43e409b18621571bf5" },
         { url: "js/registro.js", revision: "b87ba87ab09e464dec0b6664ba367518" },
-        { url: "script.js", revision: "054b1413b7d4fbe70ab6e8406d16e6a0" },
         {
           url: "site.webmanifest",
-          revision: "15389481f52526c498fb2bfb6667a890",
+          revision: "d84ec8b77963bfddbe308e86319a6b33",
         },
       ],
       { ignoreURLParametersMatching: [/^utm_/, /^fbclid$/] }

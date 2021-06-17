@@ -2,7 +2,8 @@
   "name": "Gestor de Consumo de Agua",
   "short_name": "", 
   "start_url": "/index.html",
-  "lang": "es", 
+  "scope": "/",
+  "lang": "es-MX", 
   "icons": [
     {
       "src": "/favicon/android-chrome-192x192.png",
